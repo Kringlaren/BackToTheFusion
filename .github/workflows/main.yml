@@ -18,6 +18,12 @@ jobs:
       - name: Fetch LFS files
         run: git lfs pull
 
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2  # Ensure this step is included
+        with:
+          name: godot-build
+          path: .  # Uploads the entire repo (including the exported game files)
+
       - name: Upload to GitHub Pages
         uses: actions/upload-pages-artifact@v1
         with:
